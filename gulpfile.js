@@ -1,8 +1,6 @@
 var gulp = require('gulp'),
 
     // other plugins
-    livereload = require('gulp-livereload'),
-    webserver = require('gulp-webserver'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     rename = require('gulp-rename'),
@@ -22,12 +20,7 @@ var gulp = require('gulp'),
 
 
 
-// Run webserver
-
-
-
-
-
+// Run browser sync
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
