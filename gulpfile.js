@@ -3,6 +3,8 @@ var gulp = require('gulp'),
     // other plugins
     livereload = require('gulp-livereload'),
     webserver = require('gulp-webserver'),
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload,
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     
@@ -21,16 +23,19 @@ var gulp = require('gulp'),
 
 
 // Run webserver
-gulp.task('webserver', function() {
-  gulp.src('build/')
-    .pipe(webserver({
-      livereload: true,
-      port: 1212,
-      directoryListing: false,
-      open: true
-    }));
+
+
+
+
+
+gulp.task('browser-sync', function() {
+    browserSync({
+        server: {
+            baseDir: "build/"
+        }
+    })
 });
- 
+
  
 
 
@@ -43,6 +48,7 @@ gulp.task('styles', function() {
   })
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 version'] }) ]))
     .pipe(gulp.dest('build/css'))
+    .pipe(reload({stream:true}))
     .pipe(notify({ message: 'Styles done' }));
 });
 
@@ -56,6 +62,7 @@ gulp.task('scripts', function() {
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulp.dest('build/js/'))
+    .pipe(reload({stream:true}))
     .pipe(notify({ message: 'Scripts done mayne' }));
 });
 
@@ -80,19 +87,18 @@ gulp.task('minscripts', function() {
 gulp.task('watch', function () {
     // Watch .scss files
     gulp.watch('development/scss/**/*.scss', ['styles']);
-    
     // Watch .js files
     gulp.watch('development/js/main.js', ['scripts']);
 
     // Watch .html files or .md files
-    gulp.watch('build/*.html');
+    gulp.watch('build/*.html', [browserSync.reload]);
 })
  
  
 
 
 
-gulp.task('default', ['styles', 'scripts', 'minscripts', 'webserver', 'watch']);
+gulp.task('default', ['styles', 'scripts', 'minscripts', 'browser-sync', 'watch']);
 
 
 
