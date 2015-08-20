@@ -21,17 +21,13 @@ Base-Base
 html {
   font: 100%/1.5 Arial, sans-serif;
 }
-@media (min-width: 64.063em) {
-  html {
-    font: 125%/1.5 Arial, sans-serif;
-  }
-}
 
 body {
   background: white;
   font-family: sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  font-style: normal;
 }
 
 /*
@@ -60,7 +56,6 @@ h5 {
 }
 
 p {
-  line-height: 1.5;
   margin: 0 0 1em;
 }
 
@@ -87,29 +82,158 @@ pre {
   margin-bottom: 1em;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1em 0;
-}
-
-li {
-  padding-left: 1em;
-  text-indent: -.7em;
-}
-
 a {
   text-decoration: none;
 }
 
 /*
 ========================
-Layout-Header
+Layout-Grid
 ========================
 */
+.wrapper {
+  clear: both;
+  width: 100%;
+  overflow: hidden;
+}
+
+.row {
+  clear: both;
+  width: 100%;
+  overflow: hidden;
+}
+
+.two-block {
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+@media (min-width: 40.063em) {
+  .two-block {
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+.three-block {
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+@media (min-width: 40.063em) {
+  .three-block {
+    box-sizing: border-box;
+    width: 33.33%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+.four-block {
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+@media (min-width: 40.063em) and (max-width: 64em) {
+  .four-block {
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+@media (min-width: 64.063em) {
+  .four-block {
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+.five-block {
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+@media (min-width: 40.063em) and (max-width: 64em) {
+  .five-block {
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+@media (min-width: 64.063em) {
+  .five-block {
+    box-sizing: border-box;
+    width: 20%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+.flex-row {
+  clear: both;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media (min-width: 0em) and (max-width: 40em) {
+  .flex-row {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.flex-top {
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.flex-center {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-bottom {
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
 /*
 ========================
 Layout-Page
+========================
+*/
+/*********************
+Hero
+*********************/
+/*
+========================
+Layout-Header
 ========================
 */
 /*
@@ -127,6 +251,41 @@ Partials-Header
 Partials-Page
 ========================
 */
+/*
+========================
+Partials-Hero
+========================
+*/
+.hero {
+  overflow: hidden;
+  width: 100%;
+  clear: both;
+  background: #ffff33;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media (min-width: 64.063em) {
+  .hero {
+    height: 450px;
+  }
+}
+
+.hero .wrapper {
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 /*
 ========================
 Partials-Footer

@@ -1,14 +1,19 @@
 var gulp = require('gulp'),
 
-    // other plugins
+    // live reload and sync across browsers
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
+
+    // rename files
     rename = require('gulp-rename'),
+
+    // notifications
     notify = require('gulp-notify'),
     
-    // css plugins
+    // scss compiler
     sass = require('gulp-ruby-sass'),
-    minifycss = require('gulp-minify-css'),
+
+    // autoprefix css
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer-core'),
 
@@ -24,6 +29,7 @@ var gulp = require('gulp'),
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
+            // your project's build folder
             baseDir: "build/"
         }
     })
@@ -36,13 +42,13 @@ gulp.task('browser-sync', function() {
 // Compile SASS
 gulp.task('styles', function() {
   return sass('development/scss/main.scss', {
+    // we use susy, feel free to remove this
     require: "susy",
     style: "expanded"
   })
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 version'] }) ]))
     .pipe(gulp.dest('build/css'))
-    .pipe(reload({stream:true}))
-    .pipe(notify({ message: 'Styles done' }));
+    .pipe(reload({stream:true}));
 });
 
 
@@ -55,21 +61,19 @@ gulp.task('scripts', function() {
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulp.dest('build/js/'))
-    .pipe(reload({stream:true}))
-    .pipe(notify({ message: 'Scripts done mayne' }));
+    .pipe(reload({stream:true}));
 });
 
 
 // Scripts
 gulp.task('minscripts', function() {
-  return gulp.src('development/js/main.js')
+  return gulp.src('development/js/*.js')
     .pipe(concat('main.js'))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(uglify())
     .pipe(rename('main.min.js'))
-    .pipe(gulp.dest('build/js/'))
-    .pipe(notify({ message: 'Minscripts done mayne' }));
+    .pipe(gulp.dest('build/js/'));
 });
  
  
@@ -90,7 +94,7 @@ gulp.task('watch', function () {
  
 
 
-
+// Run gulp in terminal to start all of the following processes
 gulp.task('default', ['styles', 'scripts', 'minscripts', 'browser-sync', 'watch']);
 
 

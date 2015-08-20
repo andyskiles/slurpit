@@ -6,6 +6,11 @@ Base-Config
 
 @import "susy";
 
+$susy: (
+	columns: 12,
+	gutter-position: inside
+);
+
 
 
 

@@ -1,0 +1,33 @@
+{
+  "name": "slurpit",
+  "version": "1.0.0",
+  "description": "This is a starting point for projects you need to use Gulp with.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-postcss": "^5.1.10",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^1.1.0",
+    "gulp-uglify": "^1.2.0",
+    "jshint-stylish": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andyskiles/slurpit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyskiles/slurpit/issues"
+  },
+  "homepage": "https://github.com/andyskiles/slurpit"
+}

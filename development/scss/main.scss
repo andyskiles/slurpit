@@ -5,12 +5,14 @@
 
 
 // layout
-@import "layout/l-header",
+@import "layout/l-grid",
 		"layout/l-page",
+		"layout/l-header",
 		"layout/l-footer";
 
 
 // partials
 @import "partials/p-header",
 		"partials/p-page",
+		"partials/p-hero",
 		"partials/p-footer";

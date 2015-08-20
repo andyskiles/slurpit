@@ -1,0 +1,24 @@
+/*
+========================
+Partials-Hero
+========================
+*/
+
+.hero {
+	overflow: hidden;
+	width: 100%;
+	clear: both;
+	background: lighten(yellow, 10%);
+	display: flex;
+	justify-content: center;
+
+	@include bp(l) {
+		height: 450px;
+	}
+}
+
+.hero .wrapper {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+}
